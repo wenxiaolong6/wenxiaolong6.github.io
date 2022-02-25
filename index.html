@@ -204,7 +204,7 @@
 <p>文小龙</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Hallo word</span><br><span class="line">  </span><br></pre></td></tr></table></figure>
 
-<p><img src="C:/Users/lenovo/Desktop/hdImg_2a6cd9df554001809c1d2b01ac8249be16077033568.jpg"></p>
+<p><img src="https://s2.loli.net/2022/02/22/UC3m1v8FLf2PrgY.jpg"></p>
 <p>再来一次</p>
  
       <!-- reward -->
@@ -217,6 +217,91 @@
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95/" rel="tag">测试</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+    
+</article>
+
+    
+    <article
+  id="post-gc"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/02/22/gc/"
+    >如何使用STM32F407IGHx读取mpu6050陀螺仪数据</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/02/22/gc/" class="article-date">
+  <time datetime="2022-02-22T09:41:54.000Z" itemprop="datePublished">2022-02-22</time>
+</a>    
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>y</p>
+<h1 id="一：陀螺仪JY61P概述"><a href="#一：陀螺仪JY61P概述" class="headerlink" title="一：陀螺仪JY61P概述"></a>一：陀螺仪JY61P概述</h1><h2 id="陀螺仪产品介绍："><a href="#陀螺仪产品介绍：" class="headerlink" title="陀螺仪产品介绍："></a>陀螺仪产品介绍：</h2><p><img src="https://s2.loli.net/2022/02/25/hXuMCS7nNBo93R5.png"></p>
+<p><img src="https://s2.loli.net/2022/02/25/rUkQKpMg6c5CIFn.png"></p>
+<p><img src="https://s2.loli.net/2022/02/25/lyJg4FIstZ3OwTq.png"></p>
+<h2 id="数据协议："><a href="#数据协议：" class="headerlink" title="数据协议："></a>数据协议：</h2><p><img src="https://s2.loli.net/2022/02/25/KTMp7lcGfvotqXO.png"></p>
+<p><img src="https://s2.loli.net/2022/02/25/vh7LJ1XEIl4uxTd.png"></p>
+<p><img src="https://s2.loli.net/2022/02/25/lG3ty7cDTpsxeHb.png"></p>
+<h1 id="二：使用方式"><a href="#二：使用方式" class="headerlink" title="二：使用方式"></a>二：使用方式</h1><p><img src="https://s2.loli.net/2022/02/25/9HixwpkJYTCSU6O.png"></p>
+<p><img src="https://s2.loli.net/2022/02/25/o62rWCYRjK8n5gO.png"></p>
+<p><img src="https://s2.loli.net/2022/02/25/RSa9hxslzBkbptC.png"></p>
+<p><img src="https://s2.loli.net/2022/02/25/e9EGJAxDiP5NU4O.png"></p>
+<p>三：IIC方式通讯STM32CubeMx配置</p>
+<p>1.选择芯片STM32F407IGHx</p>
+<p><img src="https://s2.loli.net/2022/02/25/RUxsgHtVakB4r3L.png"></p>
+<p>2.选择下载方式</p>
+<p><img src="https://s2.loli.net/2022/02/25/P6C82uTUOHXpMc3.png"></p>
+<p>3.配置系统时钟</p>
+<p><img src="https://s2.loli.net/2022/02/25/EpGraRq3HNDP14Y.png"></p>
+<p>4.时钟树配置</p>
+<p><img src="https://s2.loli.net/2022/02/25/WY2UwTnoGLDgdza.png"></p>
+<p>5.生成工程配置</p>
+<p><img src="https://s2.loli.net/2022/02/25/z6aBntb9cV3ECXP.png"></p>
+<p><img src="https://s2.loli.net/2022/02/25/OAV5TFgzp2XK6SU.png"></p>
+<p>6.IIC配置</p>
+<p>I2C2 的配置如下，最终配置成 I2C2 成标准模式，通信频率设置为 100k，I2C 地址配置成 7</p>
+<p>位等等，管脚配置为 PF0，PF1，如图所示：</p>
+<p>\1. 在 connectivity 下找到 I2C2；</p>
+<p>\2. 配置成 I2C；</p>
+<p>\3. 配置成 Standard Mode；</p>
+<p>\4. 其他保持默认。</p>
+<p><img src="https://s2.loli.net/2022/02/25/prG8MFcsPuk3gel.png"></p>
+<p><img src="https://s2.loli.net/2022/02/25/fiwtg2lqI6Fmk8D.png"></p>
+<p>7.GENERATE CODE生成代码</p>
+<p><img src="https://s2.loli.net/2022/02/25/uJMR7Y5B1Ig8yjp.png"></p>
+<p>8.打开工程</p>
+<p><img src="https://s2.loli.net/2022/02/25/5WLUC4gvG3aTRi9.png"></p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/123/" rel="tag">123</a></li></ul>
 
     </footer>
   </div>
